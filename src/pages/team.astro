@@ -1,0 +1,32 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+import EmployeeSection from "../components/EmployeeSection.astro";
+
+const employeeData = await fetch("https://raw.githubusercontent.com/espi0001/frontend-design/main/resources/json/employees.json").then((res) => res.json());
+---
+
+<MainLayout title="Team">
+  <section class="start">
+    <div>
+      <h2>Meet Our Great Team</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad minim veniam, quis nostrud exercitation.</p>
+    </div>
+
+    <div>
+      <Button style="secondary" linket="#">Book a meeting</Button>
+    </div>
+  </section>
+  <section>
+    <EmployeeSection data={employeeData} />
+  </section>
+</MainLayout>
+
+<style>
+  .start {
+    color: var(--color-primary3);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+</style>
