@@ -1,244 +1,154 @@
 ---
 import "../styles/style.css";
-import Button from "./Button.astro";
+import Popover from "../components/Popover.astro";
 ---
 
-<header>
-  <div class="logo">
-    <a href="/">
-      AskExperts
-    </a>
-  </div>
- <nav>
-
-    <ul class="menu">
-      <hr />
-      <li><a href="/">Home</a></li>
-      <hr />
-      <li><a href="/casestudy">Case Stude</a></li>
-      <hr />
-      <li><a href="/team">Team</a></li>
-      <hr />
-      <li><a href="/about">About</a></li>
-      <hr />
-  
+<!-- navigation.astro -->
+<header style="z-index: 10;">
+  <nav>
+    <!-- Navigation menu -->
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Case Study</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">About</a></li>
     </ul>
 
-
-
-    <div class="burger">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
+    <!-- Login Button -->
+    <button id="loginBtn" class="login-button">Login</button>
   </nav>
-
-  <Button style="secondary" linket="#">Login</Button> 
-
 </header>
+
+<!-- Popover komponent: Denne del viser login-formularen -->
+<article id="loginPopover" class="popover hidden">
+  <h2>Dashboard Login</h2>
+  <form name="newsletter" method="POST" data-netlify="true">
+    <label for="email" class="email">
+      <input type="email" id="email" name="email" required placeholder="Enter Email" />
+    </label>
+    <label for="password" class="password">
+      <input type="password" id="password" name="password" required placeholder="Enter Password" />
+    </label>
+    <div class="knap">
+      <button class="send_buttondiv" type="submit">Go to dashboard</button>
+    </div>
+  </form>
+</article>
+
+<!-- Transparent backdrop til popover -->
+<div id="backdrop" class="backdrop hidden"></div>
 
 <style>
   header {
-    width: 100%; 
-    height: 100%; 
-    padding: 38px; 
-    background: var(--color-navigation);
-    color: var(--color-secondary2);
-    backdrop-filter: blur(21px); 
-    display: inline-flex;
-    justify-content: space-evenly; 
-    align-items: center; 
-
-    /* position: absolute; */
-    z-index: 1;
+    z-index: 10; /* Sørg for, at headeren har en højere z-index end popover, så den altid vises */
   }
 
-
-
-  /* .logo {
-    display: inline-flex;
-    z-index: 5;
-    justify-content: flex-start; 
-    align-items: center; 
-    gap: 11px; 
-  } */
-  .logo {
-     a {
-          font-family: "Cabin", sans-serif;
-      font-size: 1.875rem;
-      font-weight: var(--font-weight-600);
-    }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    z-index: 10; /* For at sikre, at navigationsbaren forbliver synlig */
   }
 
-    /* nav {
-    display: inline-flex;
-    justify-content: center; 
-    align-items: center; 
-    gap: 30px; 
-  } */
-  
-
-  .menu {
-    justify-content: center; 
-    align-items: center; 
-    gap: 30px; 
-    display: inline-flex;
-    justify-content: flex-start; 
-
-    
+  ul {
+    display: flex;
+    gap: 20px;
     list-style: none;
-    /* margin: 0;
-    padding: 0; */
-    flex-wrap: nowrap;
-
   }
 
-  .menu li {
-    margin-right: 20px;
-  }
-
-  .menu li:last-child {
-    margin-right: 0;
-  }
-
-  .menu a {
-    display: block;
-    padding: 10px;
-    /* color: var(--color-secondary02);
-    font-size: var(--font_size_medium); */
+  ul li a {
     text-decoration: none;
-    transition: color 0.3s;
-    text-align: end;
-    font-weight: normal;
+    color: white;
   }
 
-  .menu a:hover {
-    /* color: var(--color_blue); */
-  }
-  hr {
-    display: none;
-  }
-  .burger {
-    width: 30px;
-    height: 20px;
+  .login-button {
+    background-color: #f1c40f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
     cursor: pointer;
   }
 
-  .burger .line {
+  /* Popover styling */
+  .popover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: white;
+    padding: 40px;
+    border-radius: 8px;
+    z-index: 1001;
+    max-width: 400px;
     width: 100%;
-    height: 2px;
-    /* background-color: var(--color_white); */
-    margin-bottom: 5px;
-    transition: 0.2s linear;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   }
-  .burger {
+
+  .popover h2 {
+    margin-bottom: 20px;
+  }
+
+  /* Backdrop styling */
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .hidden {
     display: none;
   }
-  /* __________________________ Tablet delen __________________________ */
-  /* Reglen gælder til og med 1024px */
-  @media screen and (max-width: 1024px) {
-    header {
-      padding-inline: 36px;
-      text-align: start;
-    }
-    .menu {
-      display: none;
-      text-align: start;
-    }
-    .burger {
-      display: block;
-      text-align: start;
-      z-index: 1;
-    }
 
-    .burger.active .line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-      transition: 0.2s linear;
-    }
-
-    .burger.active .line:nth-child(2) {
-      opacity: 0;
-      transition: 0.15s linear;
-    }
-
-    .burger.active .line:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-      transition: 0.2s linear;
-    }
-
-    nav.active .menu {
-      display: block;
-      /* background-color: var(--color_black); */
-      position: absolute;
-      top: 0px;
-      left: 0;
-      width: 100%;
-      z-index: 1;
-      text-align: start;
-      padding-top: 100px;
-    }
-
-    nav.active .menu li {
-      margin: 10px 20px;
-      text-align: start;
-    }
-
-    nav.active .menu a {
-      /* font-size: var(--font_size_large); */
-      text-align: start;
-    }
-    hr {
-      display: block;
-      /* border-image: var(--color_black) 1; */
-    }
-    .logo img {
-      width: 55px;
-      height: auto;
-    }
-    li:last-child img {
-      max-width: 45px;
-      height: auto;
-    }
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
-  /* __________________________ Mobil delen __________________________ */
-  /* Reglen gælder til og med 768px */
-  @media screen and (max-width: 768px) {
-    header {
-      padding-inline: 20px;
-      text-align: start;
-    }
+  input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
 
-    nav.active .menu a {
-      /* font-size: var(--font_size_medium); */
-      text-align: start;
-    }
-    .logo img {
-      width: 50px;
-      height: auto;
-    }
-    li:last-child img {
-      max-width: 40px;
-      height: auto;
-    }
+  .send_buttondiv {
+    text-align: center;
+  }
+
+  button {
+    background-color: #f1c40f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
   }
 </style>
 
 <script>
-  const burger = document.querySelector(".burger");
-  const nav = document.querySelector("nav");
-  const menu = document.querySelector(".menu");
-  const links = document.querySelectorAll(".menu li a");
+  const loginBtn = document.getElementById('loginBtn');
+  const loginPopover = document.getElementById('loginPopover');
+  const backdrop = document.getElementById('backdrop');
 
-  burger.addEventListener("click", () => {
-    burger.classList.toggle("active");
-    nav.classList.toggle("active");
+  // Show the popover and backdrop when login button is clicked
+  loginBtn.addEventListener('click', () => {
+    loginPopover.classList.toggle('hidden');
+    backdrop.classList.toggle('hidden');
   });
 
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      burger.classList.remove("active");
-      nav.classList.remove("active");
-    });
+  // Hide the popover and backdrop when clicking outside
+  backdrop.addEventListener('click', () => {
+    loginPopover.classList.add('hidden');
+    backdrop.classList.add('hidden');
   });
 </script>

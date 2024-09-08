@@ -3,30 +3,71 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Button from "../components/Button.astro";
 import EmployeeSection from "../components/EmployeeSection.astro";
 
-const employeeData = await fetch("https://raw.githubusercontent.com/espi0001/frontend-design/main/resources/json/employees.json").then((res) => res.json());
+const employeeData = await fetch("https://raw.githubusercontent.com/daviatkea/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 ---
 
 <MainLayout title="Team">
+<section class="hero">
+    <img src="/src//assets/images/teamhero.jpg" alt="Hero image" />
+  </section>
+
+  <div class="grid_team">
   <section class="start">
-    <div>
+    <div class="start-content">
       <h2>Meet Our Great Team</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. enim ad minim veniam, quis nostrud exercitation.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim ad minim veniam, quis nostrud exercitation.</p>
     </div>
 
-    <div>
-      <Button style="secondary" linket="#">Book a meeting</Button>
+    <div class="start-button">
+      <Button style="secondary" linket="#">Join our team</Button>
     </div>
   </section>
+
   <section>
     <EmployeeSection data={employeeData} />
   </section>
+  </div>
 </MainLayout>
 
 <style>
+
+.grid_team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 12rem; 
+}
+
   .start {
-    color: var(--color-primary3);
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    
   }
+  .start-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: black;
+  }
+
+  .start-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  .start-button {
+    display: flex;
+    align-items: center;
+  }
+
+  .start-button button {
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    background-color: var(--color-secondary);
+    color: white;
+    font-weight: bold;
+  }
+
+
 </style>

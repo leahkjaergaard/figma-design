@@ -1,55 +1,97 @@
-<article>
+<!-- popover.astro -->
+<article id="loginPopover" class="popover hidden">
   <h2>Dashboard Login</h2>
   <form name="newsletter" method="POST" data-netlify="true">
-    <label for="email" class="email"> <input type="email" id="email" name="email" required placeholder="enter email" /></label>
-    <label for="password" class="password"> <input type="text" id="password" name="password" required placeholder="password" /></label>
+    <label for="email" class="email">
+      <input type="email" id="email" name="email" required placeholder="Enter Email" />
+    </label>
+    <label for="password" class="password">
+      <input type="password" id="password" name="password" required placeholder="Enter Password" />
+    </label>
     <div class="knap">
       <button class="send_buttondiv" type="submit">Go to dashboard</button>
     </div>
   </form>
 </article>
 
+<!-- Transparent backdrop -->
+<div id="backdrop" class="backdrop hidden"></div>
+
 <style>
-  @layer components {
-    article {
-      background: var(--color-primary3);
-      color: var(--color-secondary2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 46px;
-      padding: 40px 60px;
-    }
+  .popover {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: white;
+    padding: 40px;
+    border-radius: 8px;
+    z-index: 1001;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      align-items: center;
+  .popover h2 {
+    margin-bottom: 20px;
+  }
 
-      #email,
-      #password {
-        padding: 22px 155px 22px 33px;
-        border-radius: 54px;
-        border: 1px #e3e3e3;
-        color: #a9a9a9;
-      }
-    }
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
 
-    button {
-      display: inline-block;
-      padding: 16px 37px;
-      transition: all 0.55s ease;
-      border-radius: 42px;
-      background: var(--color-primary1);
-      color: var(--color-primary3);
+  .hidden {
+    display: none;
+  }
 
-      &:hover {
-        transform: scale(1.04);
-        background: var(--color-primary3);
-        color: var(--color-secondary2);
-        text-decoration: none;
-      }
-    }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .send_buttondiv {
+    text-align: center;
+  }
+
+  button {
+    background-color: #f1c40f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
   }
 </style>
+
+<script>
+  const loginBtn = document.getElementById('loginBtn');
+  const loginPopover = document.getElementById('loginPopover');
+  const backdrop = document.getElementById('backdrop');
+
+  // Show the popover and backdrop when login button is clicked
+  loginBtn.addEventListener('click', () => {
+    loginPopover.classList.toggle('hidden');
+    backdrop.classList.toggle('hidden');
+  });
+
+  // Hide the popover and backdrop when clicking outside
+  backdrop.addEventListener('click', () => {
+    loginPopover.classList.add('hidden');
+    backdrop.classList.add('hidden');
+  });
+</script>

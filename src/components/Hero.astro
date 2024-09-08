@@ -1,0 +1,44 @@
+---
+import Tag from "./Tag.astro";
+
+const { baggrund, h1 } = Astro.props;
+---
+
+<article class={baggrund}>
+  <div class="box">
+    <Tag style="secondary"> <slot /> </Tag>
+    <h1>{h1}</h1>
+  </div>
+</article>
+
+<style>
+  @layer components {
+    article {
+      background-size: cover;
+      aspect-ratio: 16/5;
+      color: var(--color-primary3);
+    }
+    .baggrund1 {
+      background-image: url(../assets/about_hero.jpg);
+    }
+    .baggrund2 {
+      background-image: url(../assets/team_hero.jpg);
+    }
+    .baggrund3 {
+      background-image: url(../assets/casestudy_hero.jpg);
+    }
+    .box {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 29px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      display: inline-flex;
+    padding: 48px 60px 58px 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px; 
+    }
+  }
+</style>
