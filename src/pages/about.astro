@@ -1,79 +1,135 @@
 ---
-import "../styles/style.css";
 import MainLayout from "../layouts/MainLayout.astro";
+import AndenSection from "../components/AndenSection.astro";
 import Accordion from "../components/Accordion.astro";
-import TeamCard from "../components/TeamCard.astro";
 import Tag from "../components/Tag.astro";
+
+import Hero from "../components/Hero.astro";
+
+import { Image } from "astro:assets";
+
+import CorevaluesSection from "../components/CorevaluesSection.astro";
+
+const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/frontend-design/main/resources/json/corevalues.json").then((res) => res.json());
+
+import EmployeeSection from "../components/EmployeeSection.astro";
+
+const employeeData = await fetch("https://raw.githubusercontent.com/daviatkea/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 ---
 
 <MainLayout title="About">
+  <Hero baggrund="hero1" h1="Creative Services For Boost Your Business Growth">Services</Hero>
+
   <section>
-    <Tag style="primary">Our vision</Tag>
+    <AndenSection order="order" imageProps={{ imageProps: "case2" }} tagProps={{ style: "primary" }} h2="Turn your ideas into reality." tekst="Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps." li1="Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day." li2="Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.">Our vision</AndenSection>
+    <dl>
+      <div>
+        <dt>1128+</dt>
+        <dd>Successful Work</dd>
+      </div>
+      <div>
+        <dt>908+</dt>
+        <dd>Team member</dd>
+      </div>
+      <div>
+        <dt>258+</dt>
+        <dd>Happy Customers</dd>
+      </div>
+      <div>
+        <dt>564+</dt>
+        <dd>Creative Idea</dd>
+      </div>
+    </dl>
   </section>
+
+  <section class="core">
+    <Tag style="secondary">Growing with our Clients</Tag>
+    <CorevaluesSection data={corevalueData} buttonProps1={{ style: "secondary" }} buttonProps2={{ style: "primary" }} />
+  </section>
+
   <section class="team">
     <p class="faq">Our team</p>
     <h2>We champion the bold to achieve the extraordinary</h2>
     <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team.</p>
+    <EmployeeSection data={employeeData} />
+  </section>
+  <section>
+    <article class="accordion">
+      <div class="overskrift-tag">
+        <Tag style="primary">FAQ</Tag>
+        <h2>Customer Questions</h2>
+      </div>
+      <div class="accordion-container">
+        <Accordion overskrift1="What will happen when I’ve sent my application?" />
 
-    <article class="team-grid">
-      <TeamCard />
+        <Accordion overskrift1="Can I get a free trial before I purchase?">
+          <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</p>
+        </Accordion>
+
+        <Accordion overskrift1="What should I include in my personal statement?" />
+
+        <Accordion overskrift1="Will membership plans be charged automatically?" />
+
+        <Accordion overskrift1="What will happen when I’ve sent my application?" />
+
+        <Accordion overskrift1="Can I get a free trial before I purchase?" />
+      </div>
     </article>
   </section>
-  <section class="accordion">
-    <div class="overskrift-tag">
-      <Tag style="primary">FAQ</Tag>
-      <h2>Customer Questions</h2>
-    </div>
-    <div class="accordion-container">
-      <Accordion overskrift1="What will happen when I’ve sent my application?" />
+</MainLayout>
+<style>
 
-      <Accordion overskrift1="Can I get a free trial before I purchase?">
-        <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</p>
-      </Accordion>
+/*   section {
+   padding: 0 12rem; 
+  } */
+  dl {
+    color: black;
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
 
-      <Accordion overskrift1="What should I include in my personal statement?" />
-
-      <Accordion overskrift1="Will membership plans be charged automatically?" />
-
-      <Accordion overskrift1="What will happen when I’ve sent my application?" />
-
-      <Accordion overskrift1="Can I get a free trial before I purchase?" />
-    </div>
-  </section>
-
-  <style>
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    dt {
+      font-weight: 700;
+      font-size: var(--step-6);
+      
     }
-    .accordion {
+    dd {
+      font-size: var(--step-1);
+    }
+  }
+  .team {
+    color: black;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .core {
+    color: var(--color-primary3);
+    background: var(--color-secondary1);
+  }
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 151px 236px;
+    gap: 40px;
+    background: var(--color-secondary1);
+    color: var(--color-primary3);
+    border-radius: 30px;
+
+    .overskrift-tag {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 151px 236px;
-      background: var(--color-secondary1);
-      gap: 40px;
-
-      .overskrift-tag {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 22px;
-        padding-inline: 123px;
-        .faq {
-          background: var(--color-primary2);
-          color: var(--color-primary3);
-          padding: 0 19px;
-        }
+      align-items: center;
+      gap: 22px;
+      padding-inline: 123px;
+      .faq {
+        background: var(--color-primary2);
+        color: var(--color-secondary2);
+        padding: 0 19px;
       }
     }
-    @media screen and (min-width: 768px) {
-    }
-
-    @media screen and (min-width: 1024px) {
-    }
-
-    @media screen and (min-width: 1440px) {
-    }
-  </style>
-</MainLayout>
+  }
+</style>

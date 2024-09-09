@@ -55,8 +55,7 @@ const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/f
 
   <section class="core">
     <Tag style="secondary">Growing with our Clients</Tag>
-    <!-- 
-    <Overskrift farve="secondary" linket="#" buttonProps={{ style: "secondary" }} h2="Our core values & principles" tekst="Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.">Get in touch</Overskrift> -->
+    
     <CorevaluesSection data={corevalueData} buttonProps1={{ style: "secondary" }} buttonProps2={{ style: "primary" }} />
   </section>
 
@@ -70,15 +69,7 @@ const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/f
       <ContactInfo iconname="monday-friday" tekst="Monday To Friday" h6="9AM - 5PM" />
       <ContactInfo iconname="adress-grey" tekst="USA Office" h6="195 Devonshire St Boston, MA 02110" /> -->
     </article>
-    <figure>
-    <!-- <div class="billede-grid">
-        <Image alt="" src={#} />
-        <div>
-          <Image alt="" src={"#"} />
-          <Image alt="" src={home4} />
-        </div>
-      </div> --> 
-    </figure>
+
   </section>
 </MainLayout>
 <style>
@@ -149,6 +140,7 @@ const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/f
     background: var(--color-primary3);
     display: flex;
     flex-direction: column;
+  
   }
   .teksten {
     max-width: 50rem;
@@ -198,3 +190,4 @@ const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/f
     }
   }
 </style>
+

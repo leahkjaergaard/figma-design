@@ -1,97 +1,151 @@
-<!-- popover.astro -->
-<article id="loginPopover" class="popover hidden">
+---
+import Button from "./Button.astro";
+---
+
+<button popovertarget="popup" class="loginbtn">Login</button>
+
+<div popover id="popup">
+  <h4>Dashboard Login</h4>
+  <form action="/submit-form" method="POST">
+    <input value="Enter Email" type="text" name="name" required />
+
+    <input value="Enter Password" type="email" name="email" required />
+
+    <input class="submit" type="submit" value="Submit" name="Show Dashboard" />
+  </form>
+</div>
+
+<style>
+  [popover]::backdrop {
+    background: #0004;
+    backdrop-filter: blur(16px);
+  }
+
+  .loginbtn {
+    background: var(--color-primary1);
+    color: var(--color-primary3);
+    display: inline-block;
+    padding: 16px 37px;
+    transition: all 0.55s ease;
+    border-radius: 42px;
+    align-self: start;
+
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .submit {
+    background-color: var(--color-primary1);
+    display: inline-block;
+    padding: 16px 37px;
+    transition: all 0.55s ease;
+    border-radius: 42px;
+    background: var(--color-primary1);
+    color: var(--color-primary3);
+  }
+  label {
+    display: flex;
+    width: 382px;
+    padding: 24px 33px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 54px;
+    border: 1px solid #e3e3e3;
+    background: var(--color-secondary2);
+  }
+
+  input {
+    border-radius: 100px;
+    background: var(--color-secondary2);
+    padding: 18px;
+    z-index: 10;
+  }
+
+  #popup {
+    min-width: 750px;
+    padding: 40px 60px 60px 60px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    margin: auto;
+    border-radius: 29px;
+    &:popover-open {
+      display: flex;
+    }
+
+    h4 {
+      color: var(--color-secondary2);
+      text-align: center;
+      font-family: Cabin;
+      font-size: 45px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 116%; /* 52.2px */
+    }
+  }
+</style>
+
+ <article>
   <h2>Dashboard Login</h2>
   <form name="newsletter" method="POST" data-netlify="true">
-    <label for="email" class="email">
-      <input type="email" id="email" name="email" required placeholder="Enter Email" />
-    </label>
-    <label for="password" class="password">
-      <input type="password" id="password" name="password" required placeholder="Enter Password" />
-    </label>
+    <label for="email" class="email"> <input type="email" id="email" name="email" required placeholder="enter email" /></label>
+    
+    <label for="password" class="password"> <input type="text" id="password" name="password" required placeholder="password" /></label>
+    
     <div class="knap">
       <button class="send_buttondiv" type="submit">Go to dashboard</button>
     </div>
   </form>
 </article>
 
-<!-- Transparent backdrop -->
-<div id="backdrop" class="backdrop hidden"></div>
-
 <style>
-  .popover {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #333;
-    color: white;
-    padding: 40px;
-    border-radius: 8px;
-    z-index: 1001;
-    max-width: 400px;
-    width: 100%;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  @layer components {
+    article {
+      background: var(--color-primary3);
+      color: var(--color-secondary2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 46px;
+      padding: 40px 60px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+
+      #email,
+      #password {
+        padding: 22px 155px 22px 33px;
+        border-radius: 54px;
+        border: 1px #e3e3e3;
+        color: #a9a9a9;
+      }
+    }
+
+    button {
+      display: inline-block;
+      padding: 16px 37px;
+      transition: all 0.55s ease;
+      border-radius: 42px;
+      background: var(--color-primary1);
+      color: var(--color-primary3);
+
+      &:hover {
+        transform: scale(1.04);
+        background: var(--color-primary3);
+        color: var(--color-secondary2);
+        text-decoration: none;
+      }
+    }
   }
-
-  .popover h2 {
-    margin-bottom: 20px;
-  }
-
-  .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-
-  .send_buttondiv {
-    text-align: center;
-  }
-
-  button {
-    background-color: #f1c40f;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-</style>
-
-<script>
-  const loginBtn = document.getElementById('loginBtn');
-  const loginPopover = document.getElementById('loginPopover');
-  const backdrop = document.getElementById('backdrop');
-
-  // Show the popover and backdrop when login button is clicked
-  loginBtn.addEventListener('click', () => {
-    loginPopover.classList.toggle('hidden');
-    backdrop.classList.toggle('hidden');
-  });
-
-  // Hide the popover and backdrop when clicking outside
-  backdrop.addEventListener('click', () => {
-    loginPopover.classList.add('hidden');
-    backdrop.classList.add('hidden');
-  });
-</script>
+</style> 
