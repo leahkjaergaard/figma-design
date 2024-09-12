@@ -1,7 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import AndenSection from "../components/AndenSection.astro";
-import Accordion from "../components/Accordion.astro";
 import Tag from "../components/Tag.astro";
 import { Image } from "astro:assets";
 import AboutSection from "../components/AboutSection.astro";
@@ -28,8 +27,6 @@ const employeeData = await fetch("https://raw.githubusercontent.com/daviatkea/fr
   <CorevaluesSection data={corevalueData} background="white" tagProps={{ style: "secondary" }} buttonProps1={{ style: "primary" }}>Growing with our Clients</CorevaluesSection>
 
   <EmployeeSection data={employeeData} />
-
-  <Accordion />
    <FaqSection />
 </MainLayout>
 <style>
