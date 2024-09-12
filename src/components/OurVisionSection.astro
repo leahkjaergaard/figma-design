@@ -1,111 +1,65 @@
 ---
 import HeadingButton from "./HeadingButton.astro";
 import Tag from "./Tag.astro";
-
+import ourvision from '../assets/images/ourvision.jpg'; 
 ---
 
 <section>
-  <div class="container">
-    <div class="what-to-container">
-        
-      <div>
+  <div class="wrapper">
+    <div class="vision-container">
+      <div class="vision-text">
         <Tag style="primary">OUR VISION</Tag>
-      
-      <h2>Turn your ideas into reality.</h2>
-      <p>
-        Capitalize on low hanging fruit to identify a ballpark value added
-        activity beta test. Override the digital divide with additional from
-        DevOps.
-      </p>
-      </div>
-      <ul>
-        <li>
-          Bring to the table win-win survival strategies to ensure proactive
-          domination. At the end of the day.
-        </li>
-        <li>
+        <h2>Turn your ideas into reality.</h2>
+        <p>
           Capitalize on low hanging fruit to identify a ballpark value added
-          activity to beta test override the digital.
-        </li>
-      </ul>
+          activity beta test. Override the digital divide with additional from
+          DevOps.
+        </p>
+        <ul>
+          <li>
+            Bring to the table win-win survival strategies to ensure proactive
+            domination. At the end of the day.
+          </li>
+          <li>
+            Capitalize on low hanging fruit to identify a ballpark value added
+            activity to beta test override the digital.
+          </li>
+        </ul>
+      </div>
+      <div class="vision-img">
+        
+        <img src={ourvision} alt="Vision Image" />
+        <div class="decorative-box"></div>
+      </div>
     </div>
   </div>
-  <div class="wrapper">
-    <div class="what-to-container">
-        <img src="../src/images/ourvision.jpg" alt="" />
-      </div>
-  </div>
 </section>
+
 <style>
+ 
   section {
-    container: section / inline-size;
-    background: var(--secondary02);
     padding: 4rem 0;
   }
 
-  .wrapper {
-    container: what-to-container / inline-size;
-  }
-
-  .what-to-container:has(img) {
+  .vision-container {
     display: grid;
     gap: 1rem;
 
-    @container what-to-container (width > 500px) {
+    @container vision-container (width > 500px) {
       grid-template-columns: 1fr 1fr;
     }
   }
-  section {
-    display: grid;
-    gap: 4rem;
-    grid-column: feature;
 
-    @media (width > 900px) {
-      grid-template-columns: 1fr minmax(0, 400px);
-    }
-
-    .what-to-container {
-      margin-inline: auto;
-      display: block;
-      position: relative;
-
-      .stars {
-        position: absolute;
-        width: 13rem;
-        height: 13rem;
-        right: -5rem;
-        top: -3rem;
-        z-index: -2;
-      }
-    }
-    .what-to-container:has(img)::before {
-      content: "";
-      position: absolute;
-      right: -2rem;
-      top: -2rem;
-      border-radius: 1.25rem;
-      background: #4eaf4e;
-      width: 10.25rem;
-      height: 11.4375rem;
-      transform: rotate(-90deg);
-      flex-shrink: 0;
-      z-index: -1;
-    }
-
-    .vision-img {
-      display: flex;
-      flex-direction: column-reverse;
-    }
-
-    img:not(.stars) {
-      border-radius: 1.75rem;
-    }
+  .vision-text {
+    margin-inline: auto;
+    display: block;
   }
 
   ul {
     display: grid;
     gap: 1rem;
     margin-left: -2.5rem;
+    color: black;
   }
 
   li {
@@ -114,11 +68,11 @@ import Tag from "./Tag.astro";
     gap: 1rem;
   }
 
-  li:before {
-    content: "";
-    flex-shrink: 0;
-    width: 1.6rem;
-    aspect-ratio: 1;
-    background: var(--checkmark-icon) 50% 50% / contain no-repeat;
+  h2, p {
+    color: black;
+  }
+
+  img {
+    border-radius: 1.75rem;
   }
 </style>

@@ -14,6 +14,6 @@ I forhold til billederne, vil jeg til en anden gang gerne sætte mig bedre ind i
 
 Derudover vil jeg gerne have været færdig med alle sider, men det ved jeg selvfølgelig godt ikke er meningen, men istedet at vise at man kan bruge nogle af de teknikker du har vidst os i undervisningen.
 
-Til en anden gang vil jeg også gerne have styr på at Netlify og Github virker som det skal, da jeg her til aften kl 21 pludselig fik fejlmeddelelsen “Git: Failed to execute git” samtidig med at min Netlify ikke virkede, og pludselig virkede intet, og jeg følte pludselig at jeg ikke kunne aflevere noget. Jeg installerede Git på ny, det samme med Astro, og måtte til sidst klone mit eget repository og lave en ny mappe før det virkede igen.
+Til en anden gang vil jeg også gerne have styr på at Netlify og Github virker som det skal, da jeg her til aften kl 21 pludselig fik fejlmeddelelsen “Git: Failed to execute git” samtidig med at min Netlify ikke virkede, og pludselig virkede intet, og jeg følte pludselig at jeg ikke kunne aflevere noget. Jeg installerede Git på ny, det samme med Astro, og måtte til sidst klone mit eget repository og lave en ny mappe før det virkede igen. Min Netlify driller mig desværre også, og vil ikke vise nogle af billederne, så hvis du en dag har tid, må du gerne forklare mig hvad jeg gør forkert i forhold til Netlify.
 
-Tak for et godt tema!
+Tak for et godt tema, og sorry for lidt lang reflektion!
