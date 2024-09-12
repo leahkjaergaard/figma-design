@@ -1,6 +1,6 @@
 <section>
-  <p class="medium-size">Project Overview</p>
-  <p class="small-size">
+  <p class="heading">Project Overview</p>
+  <p class="body-text">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -9,24 +9,24 @@
     non proident.
   </p>
   <ul>
-    <li class="small-size">
+    <li class="body-text">
       It brings the right people together with all the right information and
       tools to get work done
     </li>
-    <li class="small-size">
+    <li class="body-text">
       We provide operational efficiency, data security, and flexible scale
     </li>
-    <li class="small-size">
+    <li class="body-text">
       Your best work, together in one package that works seamlessly from your
       computer
     </li>
-    <li class="small-size">
-      Delivers the tools you need to save time Improve field performance always
+    <li class="body-text">
+      Delivers the tools you need to save time and improve field performance always
     </li>
   </ul>
 
-  <p class="normal-size">Storyboard</p>
-  <p class="small-size">
+  <p class="heading">Storyboard</p>
+  <p class="body-text">
     Completely synergize resource taxing relationships via premier niche
     markets. Professionally cultivate one-to-one customer service with robust
     ideas. Dynamically innovate resource-leveling customer service for state of
@@ -34,25 +34,25 @@
     products whereas parallel platforms. Holistically predominate extensible
     testing procedures for reliable supply chains.
   </p>
-  <p class="small-size">
-    Proactively envisioned multimedia based expertise and cross-media growth
+  <p class="body-text">
+    Proactively envisioned multimedia-based expertise and cross-media growth
     strategies. Seamlessly visualize quality intellectual capital without
     superior collaboration and idea-sharing. Holistically pontificate installed
     base portals after maintainable products completely pursue scalable customer
     service.
   </p>
   <div class="img">
-    <img src="../src/assets/images/case3.jpg" alt="" />
+    <img src="../src/assets/images/case3.jpg" alt="Case Image" />
   </div>
-  <p class="normal-size">Project result</p>
-  <p class="small-size">
+  <p class="heading">Project result</p>
+  <p class="body-text">
     Leverage agile frameworks to provide a robust synopsis for high level
     overviews. Iterative approaches to corporate strategy foster collaborative
     thinking to further the overall value proposition. Organically grow the
     holistic world view of disruptive innovation via workplace diversity and
     empowerment.
   </p>
-  <p class="small-size">
+  <p class="body-text">
     Bring to the table win-win survival strategies to ensure proactive
     domination. At the end of the day, going forward, a new normal that has
     evolved from generation X is on the runway heading towards a streamlined
@@ -63,55 +63,60 @@
 
 <style>
   section {
-  padding: 2rem 5%;
-  background-color: #f9f9f9;
-}
-
-.medium-size, .normal-size {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.small-size {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: #333;
-}
-
-ul {
-  list-style: disc inside;
-  margin: 2rem 0;
-}
-
-li {
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.img {
-  margin: 2rem 0;
-  display: flex;
-  justify-content: center;
-}
-
-.img img {
-  max-width: 100%;
-  border-radius: 16px;
-}
-
-/* Responsivt design */
-@media (max-width: 768px) {
-  section {
-    padding: 1rem;
+    padding: 2rem 5%;
+    background-color: var(--color-secondary1);
   }
 
-  .medium-size, .normal-size {
-    font-size: 1.1rem;
+  .heading {
+    font-size: var(--step-2); /* Overskrift */
+    font-weight: var(--font-weight-600);
+    margin-bottom: 1rem;
+    color: var(--color-primary3);
+  }
+
+  .body-text {
+    font-size: var(--step-0); /* Brødtekst */
+    margin-bottom: 1.5rem;
+    color: var(--color-text); /* Tekstfarve */
   }
 
   ul {
-    margin: 1rem 0;
+    list-style: disc inside;
+    margin: 2rem 0;
   }
-}
+
+  li {
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .img {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .img img {
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  /* Responsivt design */
+  @media (max-width: 768px) {
+    section {
+      padding: 1rem;
+    }
+
+    .heading {
+      font-size: var(--step-1); /* Justering af overskrift */
+    }
+
+    .body-text {
+      font-size: var(--step--1); /* Justering af brødtekst */
+    }
+
+    ul {
+      margin: 1rem 0;
+    }
+  }
 </style>
