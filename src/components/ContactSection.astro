@@ -1,171 +1,177 @@
 ---
-import PillHeading from "./PillHeading.astro";
+import HeadingButton from "./HeadingButton.astro";
 ---
 
-<section>
+<section class="contact-section">
   <div class="wrapper">
     <div class="contact">
-      <PillHeading title="procces" />
-      <p class="medium-size">Contact Us. It's Easy</p>
-      <p class="small-size">
+      <HeadingButton title="Process" />
+      <h2 class="contact-title">Contact Us. It's Easy.</h2>
+      <p class="contact-description">
         Leverage agile frameworks to provide a robust synopsis for high level
         overviews. Iterative approaches to corporate strategy foster
         collaborative.
       </p>
-      <dl>
-        <div class="dllist-call">
-          <div class="dt-dd-container">
-            <dt class="small-size">Call Today</dt>
-            <dd class="small-size"><strong>+1 800 100 900</strong></dd>
+      <dl class="contact-info">
+        <div class="contact-item">
+          <div class="icon-text">
+            <div class="icon-container">
+              <img src="../icons/phoneyellow.svg" alt="Phone Icon" />
+            </div>
+            <div class="dt-dd-container">
+              <dt>Call Today</dt>
+              <dd><strong>+1 800 100 900</strong></dd>
+            </div>
           </div>
         </div>
-        <div class="dllist-hours">
-          <div class="dt-dd-container">
-            <dt class="small-size">Monday To Friday</dt>
-            <dd class="small-size"><strong>9AM - 5PM</strong></dd>
+        <div class="contact-item">
+          <div class="icon-text">
+            <div class="icon-container">
+              <img src="../icons/greenclock.svg" alt="Clock Icon" />
+            </div>
+            <div class="dt-dd-container">
+              <dt>Monday To Friday</dt>
+              <dd><strong>9AM - 5PM</strong></dd>
+            </div>
           </div>
         </div>
-        <div class="dllist-place">
-          <div class="dt-dd-container">
-            <dt class="small-size">USA Office</dt>
-            <dd class="small-size">
-              <strong>195 Devonshire St Boston, MA 02110</strong>
-            </dd>
+        <div class="contact-item">
+          <div class="icon-text">
+            <div class="icon-container">
+              <img src="../icons/grayplace.svg" alt="Location Icon" />
+            </div>
+            <div class="dt-dd-container">
+              <dt>USA Office</dt>
+              <dd>
+                <strong>195 Devonshire St Boston, MA 02110</strong>
+              </dd>
+            </div>
           </div>
         </div>
       </dl>
     </div>
-  </div>
-  <div class="wrapper">
-    <div class="contact-container">
+
+    <!-- Billedsektionen -->
+    <div class="image-container">
       <div class="large-img">
-        <img src="../images/contactone.jpg" alt="" />
+        <img src="../src/assets/images/index1.jpg" alt="Contact Image One" />
       </div>
       <div class="small-img">
-        <img class="stars" src="../images/smallStars.svg" alt="" />
-        <img src="../images/contacttwo.jpg" alt="" />
-        <img src="../images/contactthree.jpg" alt="" />
+        <img src="../src/assets/images/index2.jpg" alt="Contact Image Two" />
+        <img src="../src/assets/images/index3.jpg" alt="Contact Image Three" />
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  section {
-    container: section / inline-size;
-    background: var(--secondary02);
-    padding: 6rem 0;
-    /* margin: 6rem 0; */
-
-    @media (width < 900px) {
-      padding: 3rem 0;
-    }
-  }
-
-  .wrapper {
-    container: contact-container / inline-size;
-  }
-
-  .contact-container:has(img) {
-    display: grid;
-    padding: 2rem 0;
-    gap: 1rem;
-
-    @container contact-container (width > 500px) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  section {
-    display: grid;
-    gap: 1rem;
-    grid-column: feature;
-
-    @media (width > 900px) {
-      grid-template-columns: 1fr minmax(0, 500px);
-    }
-
-    .contact-container {
-      margin-inline: auto;
-      display: block;
-      position: relative;
-    }
-    .contact-container:has(img) {
+  @layer components {
+    .contact-section {
+      background: var(--color-secondary1);
+      padding: 6rem 0;
       display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1rem;
     }
 
-    img:not(.stars) {
-      border-radius: 1.75rem;
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-title {
+      font-size: var(--step-5);
+      color: var(--color-primary3); 
+      margin-bottom: 1rem;
+    }
+
+    .contact-description {
+      font-size: var(--step-0);
+      color: var(--color-text); 
+      margin-bottom: 2rem;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+
+    .icon-container {
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    dl {
+      margin-top: 2rem;
+    }
+
+    dt, dd {
+      margin: 0;
+      color: var(--color-primary3); 
+    }
+
+    /* Billedsektionen */
+    .image-container {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-areas: 
+        "large-img small-img";
+      align-items: center;
+    }
+
+    .large-img img {
+      width: 100%;
+      border-radius: 1.5rem;
+      grid-area: large-img;
     }
 
     .small-img {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1fr;
+      grid-area: small-img;
+    }
 
-      .stars {
-        position: absolute;
-        width: 14rem;
-        height: 14rem;
-        right: -2rem;
-        top: -1.5rem;
-        z-index: -2;
+    .small-img img {
+      width: 100%;
+      border-radius: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-info {
+        text-align: center;
+      }
+
+      .image-container {
+        grid-template-areas: 
+          "large-img"
+          "small-img";
+      }
+
+      .small-img {
+        grid-template-columns: 1fr 1fr;
       }
     }
-
-    .contact-container:has(img)::before {
-      content: "";
-      position: absolute;
-      left: 1rem;
-      bottom: -5rem;
-      border-radius: 1.25rem;
-      background: #4eaf4e;
-      width: 8rem;
-      height: 15rem;
-      transform: rotate(-90deg);
-      flex-shrink: 0;
-      z-index: -1;
-    }
-  }
-  dl {
-    display: grid;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .dllist-call,
-  .dllist-hours,
-  .dllist-place {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .dllist-call:before {
-    content: "";
-    flex-shrink: 0;
-    width: 1.6rem;
-    aspect-ratio: 1;
-    background: url(../icons/phoneyellow.svg) 50% 50% / contain no-repeat;
-  }
-  .dllist-place:before {
-    content: "";
-    flex-shrink: 0;
-    width: 1.6rem;
-    aspect-ratio: 1;
-    background: url(../icons/grayplace.svg) 50% 50% / contain no-repeat;
-  }
-
-  .dllist-hours:before {
-    content: "";
-    flex-shrink: 0;
-    width: 1.6rem;
-    aspect-ratio: 1;
-    background: url(../icons/greenclock.svg) 50% 50% / contain no-repeat;
-  }
-
-  .dt-dd-container {
-    display: grid;
-    gap: 0.5rem;
   }
 </style>
+
+

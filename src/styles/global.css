@@ -47,13 +47,13 @@
   }
 
   main {
-    /* background-color: var(--color_black); */
+    -color: var(--color_black);
     max-width: 1600px;
     margin: auto;
   }
-  /* section {
+  section {
     padding-inline: 22.5rem;
-  } */
+  }
 
   h1,
   h2,

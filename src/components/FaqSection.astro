@@ -1,0 +1,99 @@
+---
+import HeadingButton from "./HeadingButton.astro";
+import Faq from "../components/Faq.astro";
+---
+
+<section>
+  <div class="faq-container">
+    <HeadingButton textColor="#FFFFFF" backgroundColor="var(--color-primary2)" title="FAQ" />
+    <p class="medium-size">Customer Questions</p>
+    <div class="faq-inner">
+      <Faq
+        title="What will happen when I’ve sent my application?"
+        data="faq-toggle-1"
+        id="faq-toggle-1"
+        body="Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements."
+      />
+      <Faq
+        title="Can I get a free trial before I purchase?"
+        data="faq-toggle-2"
+        id="faq-toggle-2"
+        body="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+      />
+      <Faq
+        title="What should I include in my personal statement?"
+        data="faq-toggle-3"
+        id="faq-toggle-3"
+        body="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+      />
+      <Faq
+        title="Will membership plans be charged automatically?"
+        data="faq-toggle-4"
+        id="faq-toggle-4"
+        body="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+      />
+      <Faq
+        title="What will happen when I’ve sent my application?"
+        data="faq-toggle-5"
+        id="faq-toggle-5"
+        body="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+      />
+      <Faq
+        title="Can I get a free trial before I purchase?"
+        data="faq-toggle-6"
+        id="faq-toggle-6"
+        body="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    grid-column: feature;
+    background: var(--color-secondary1); 
+    margin-bottom: 10rem;
+  }
+
+  .faq-container {
+    padding: 6rem 2rem;
+    background-color: var(--color-secondary1); 
+    border-radius: 1.875rem;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .faq-inner {
+    padding-top: 2rem;
+    width: 100%;
+  }
+
+  .medium-size {
+    padding-top: 1rem;
+    font-size: var(--step-3); 
+    font-weight: var(--font-weight-700); 
+    color: var(--color-primary3); 
+    max-width: 60ch;
+    text-align: center;
+  }
+
+  /* Mobilvenligt design */
+  @media (max-width: 768px) {
+    .faq-container {
+      padding: 4rem 1rem;
+    }
+
+    .medium-size {
+      font-size: var(--step-2);
+    }
+
+    .faq-toggle + label:after {
+      padding-left: 10px;
+    }
+  }
+</style>
+

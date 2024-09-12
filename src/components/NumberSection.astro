@@ -1,44 +1,58 @@
 <dl>
   <div>
-    <dt>Successful Work</dt>
     <dd>1128+</dd>
+    <dt>Successful Work</dt>
   </div>
   <div>
-    <dt>Team members</dt>
     <dd>908+</dd>
+    <dt>Team members</dt>
   </div>
   <div>
-    <dt>Happy customers</dt>
     <dd>258+</dd>
+    <dt>Happy customers</dt>
   </div>
   <div>
-    <dt>Creative Idea</dt>
     <dd>564+</dd>
+    <dt>Creative Ideas</dt>
   </div>
 </dl>
 
 <style>
   dl {
-    grid-column: feature;
-    margin-top: -1rem;
-    padding-block-end: 4rem;
-    text-align: center;
-    justify-content: center;
-    z-index: 1;
-
     display: flex;
+    justify-content: center;
+    text-align: center;
     gap: 3rem;
+    padding: 2rem 0;
+    z-index: 1;
+    margin-bottom: 2rem;
+  }
 
-    > * {
-      display: flex;
-      flex-direction: column-reverse;
-      font-size: var(--paragraph-text);
-      color: black;
+  dl > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-primary3);
+  }
 
-      :last-child {
-        font-size: var(--heading04);
-        font-weight: 500;
-      }
+  dd {
+    font-size: var(--step-5); /* Størrelse til tallene */
+    font-weight: var(--font-weight-700);
+    margin: 0;
+    color: var(--color-primary3);
+  }
+
+  dt {
+    font-size: var(--step-1); /* Størrelse til beskrivelserne */
+    font-weight: var(--font-weight-500);
+    margin-top: 0.5rem;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    dl {
+      flex-direction: column;
+      gap: 1.5rem;
     }
   }
 </style>

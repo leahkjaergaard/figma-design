@@ -8,7 +8,7 @@ import AboutSection from "../components/AboutSection.astro";
 import AboutSection2 from "../components/AboutSection2.astro";
 import AboutEmployee from "../components/AboutEmployee.astro";
 import CorevaluesSection from "../components/CorevaluesSection.astro";
-
+import FaqSection from "../components/FaqSection.astro";
 
 const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/frontend-design/main/resources/json/corevalues.json").then((res) => res.json());
 
@@ -30,11 +30,20 @@ const employeeData = await fetch("https://raw.githubusercontent.com/daviatkea/fr
   <EmployeeSection data={employeeData} />
 
   <Accordion />
+   <FaqSection />
 </MainLayout>
 <style>
   .accordion {
     display: flex;
+}
 
-
-  }
+.hero {
+ background-color: var(--color-primary3);
+  color: var(--color-secondary2);
+  grid-column: content;
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  padding: 0 0%;
+}
 </style>

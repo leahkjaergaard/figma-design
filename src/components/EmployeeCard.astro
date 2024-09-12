@@ -12,10 +12,10 @@ if (!images[img]) throw new Error(`"${img}" does not exist in glob: "src/assets/
 <article class="employee-card">
   <Image src={images[img]()} alt={name} class="employee-image" />
   <h5>{name}</h5>
-  <p>{title}</p>
-  <p>{description}</p>
-  <div class="iconer">
-    <!-- Her kan du aktivere de sociale ikoner -->
+  <p class="employee-title">{title}</p>
+  <p class="employee-description">{description}</p>
+  <div class="social-icons">
+    <!-- Her kan du tilføje sociale ikoner -->
     <!-- <Icon name="instagram" />
     <Icon name="twitter" />
     <Icon name="facebook" /> -->
@@ -25,14 +25,14 @@ if (!images[img]) throw new Error(`"${img}" does not exist in glob: "src/assets/
 <style>
   @layer components {
     .employee-card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: var(--color-secondary2);
+      border-radius: 15px;
+      box-shadow: none;
       padding: 1.5rem;
       text-align: center;
       transition: transform 0.3s ease;
-      max-width: 300px;
-      margin: auto;
+      max-width: 350px;
+      margin: 0 auto;
     }
 
     .employee-card:hover {
@@ -43,25 +43,28 @@ if (!images[img]) throw new Error(`"${img}" does not exist in glob: "src/assets/
       width: 100%;
       height: auto;
       border-radius: 20px;
-      margin-bottom: 1rem;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
     }
 
     h5 {
-      font-size: 1.5rem;
+      font-size: var(--step-2);
+      font-weight: var(--font-weight-700);
       margin-bottom: 0.5rem;
       color: var(--color-primary3);
     }
 
-    p {
-      margin: 0.5rem 0;
+    .employee-title {
+      font-size: var(--step-0);
       color: var(--color-text);
+      margin-bottom: 0.5rem;
     }
 
-    .iconer {
-      display: flex;
-      gap: 29px;
-      justify-content: center;
-      margin-top: 1rem;
+    .employee-description {
+      font-size: var(--step-0);
+      color: var(--color-text);
+      margin-bottom: 1.5rem;
     }
+
   }
 </style>

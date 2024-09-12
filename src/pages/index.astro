@@ -52,21 +52,10 @@ const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/f
   </section>
 
   <section class="core">
-    <Tag style="secondary">Growing with our Clients</Tag>
-    
     <CorevaluesSection data={corevalueData} buttonProps1={{ style: "secondary" }} buttonProps2={{ style: "primary" }} />
   </section>
 
-  <section class="sidste">
-    <article class="del1">
-      <Tag style="secondary">Proccess</Tag>
-      <h2>Contact Us. It’s Easy.</h2>
-      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative.</p>
 
-     
-    </article>
-
-  </section>
   <ContactSection />
 </MainLayout>
 <style>
@@ -77,18 +66,17 @@ const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/f
   color: var(--color-secondary2);
   grid-column: content;
   display: flex;
-  flex-direction: row; /* Sætter billedet og teksten i en række */
-  justify-content: space-between; /* Sørger for plads mellem dem */
+  flex-direction: row; 
   align-items: center;
   padding: 2rem 5%;
   gap: 32px;
-  max-width: 1200px; /* Maksimal bredde for bedre layoutstyring */
-  margin: 0 auto; /* Centrerer sektionen på siden */
+  margin: 0 auto; 
+  max-width: 1200
+;
 }
 
 .hero img {
   width: 100%;
-  max-width: 500px; /* Justerer billedets størrelse */
 }
 
   .tekst-knap {
@@ -125,7 +113,7 @@ const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/f
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; /* Justerer tekstcentrering */
+  text-align: center; 
   padding: 2rem 5%;
   background-color: var(--color-secondary1);
   color: var(--color-primary3);
@@ -134,17 +122,17 @@ const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/f
 }
 
 .services .teksten {
-  max-width: 800px; /* Begrænser tekstbredden */
+  max-width: 800px; 
   margin-bottom: 2rem;
 }
 
     > * {
-      /* max-width: var(--content-width); */
+       max-width: var(--content-width); 
     }
     h2 {
       font-weight: var(--font-weight-700);
     }
-  }
+  
   .core {
     background: var(--color-primary3);
     display: flex;
@@ -182,7 +170,7 @@ const corevalueData = await fetch("https://raw.githubusercontent.com/daviatkea/f
   }
 .sidste {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* To kolonner */
+  grid-template-columns: 1fr 1fr; 
   gap: 2rem;
   padding: 4rem 5%;
   max-width: 1200px;
