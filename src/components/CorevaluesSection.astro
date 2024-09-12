@@ -1,7 +1,7 @@
 ---
 import Button from "./Button.astro";
 import Tag from "./Tag.astro";
-import CoreValuesCard from "./CoreValuesCard.astro";
+import CorevaluesCard from "./CorevaluesCard.astro";
 
 const { data } = Astro.props;
 const { buttonProps1, background } = Astro.props;
@@ -24,7 +24,7 @@ const { title, subtitle, button, values } = data;
     <ul class="values-list">
       {values.map((corevalue) => (
         <li class="core-value">
-          <CoreValuesCard corevalue={corevalue} />
+          <CorevaluesCard corevalue={corevalue} />
         </li>
       ))}
     </ul>
