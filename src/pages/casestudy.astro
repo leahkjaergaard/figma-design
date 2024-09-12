@@ -8,7 +8,7 @@ import Button from "../components/Button.astro";
 
 <MainLayout title="Case Study Single">
    <div class="image-container full-width">
-    <img src="../src/assets/images/casestudy_hero.jpg" alt="" />
+    <img src="/casestudy_hero.jpg" alt="Case Image" />
     <div class="head-container">
     <HeadingButton title="Case Studies single" />
     <p>Taxes & Efficiency</p>
@@ -55,20 +55,17 @@ import Button from "../components/Button.astro";
   color: black;
 }
 
-/* Constrained layout for the rest of the sections */
 .constrained-container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Full-width sections */
 .full-width {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }
 
-/* Responsive design adjustments */
 @media (max-width: 768px) {
   .head-container {
     padding: 0.5rem 1rem;
