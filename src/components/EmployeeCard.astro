@@ -1,7 +1,6 @@
 ---
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-/* import { Icon } from "astro-icon/components" */;
 
 const { employee } = Astro.props;
 const { img, name, title, description } = employee;
@@ -10,11 +9,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/
 if (!images[img]) throw new Error(`"${img}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`);
 ---
 
-<article>
-  <Image src={images[img]()} alt={name} />
+<article class="employee-card">
+  <Image src={images[img]()} alt={name} class="employee-image" />
   <h5>{name}</h5>
+  <p>{title}</p>
   <p>{description}</p>
   <div class="iconer">
+    <!-- Her kan du aktivere de sociale ikoner -->
     <!-- <Icon name="instagram" />
     <Icon name="twitter" />
     <Icon name="facebook" /> -->
@@ -23,21 +24,44 @@ if (!images[img]) throw new Error(`"${img}" does not exist in glob: "src/assets/
 
 <style>
   @layer components {
-    article {
-      color: var(--color-primary3);
+    .employee-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
       text-align: center;
-      p {
-        color: var(--color-text);
-      }
+      transition: transform 0.3s ease;
+      max-width: 300px;
+      margin: auto;
     }
-    img {
+
+    .employee-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .employee-image {
+      width: 100%;
+      height: auto;
       border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    h5 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-primary3);
+    }
+
+    p {
+      margin: 0.5rem 0;
+      color: var(--color-text);
     }
 
     .iconer {
       display: flex;
       gap: 29px;
       justify-content: center;
+      margin-top: 1rem;
     }
   }
 </style>

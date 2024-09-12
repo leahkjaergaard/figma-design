@@ -1,0 +1,44 @@
+<dl>
+  <div>
+    <dt>Successful Work</dt>
+    <dd>1128+</dd>
+  </div>
+  <div>
+    <dt>Team members</dt>
+    <dd>908+</dd>
+  </div>
+  <div>
+    <dt>Happy customers</dt>
+    <dd>258+</dd>
+  </div>
+  <div>
+    <dt>Creative Idea</dt>
+    <dd>564+</dd>
+  </div>
+</dl>
+
+<style>
+  dl {
+    grid-column: feature;
+    margin-top: -1rem;
+    padding-block-end: 4rem;
+    text-align: center;
+    justify-content: center;
+    z-index: 1;
+
+    display: flex;
+    gap: 3rem;
+
+    > * {
+      display: flex;
+      flex-direction: column-reverse;
+      font-size: var(--paragraph-text);
+      color: black;
+
+      :last-child {
+        font-size: var(--heading04);
+        font-weight: 500;
+      }
+    }
+  }
+</style>

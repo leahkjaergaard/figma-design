@@ -1,0 +1,98 @@
+---
+import Button from "./Button.astro";
+---
+
+
+
+<section>
+ 
+    <div class="img">
+    <img src="../src/assets/images/case2.jpg" alt="" />
+  </div>
+  <div class="content">
+    <dl>
+      <div>
+        <dt>Taxes & Efficiency</dt>
+        <dd>Case Name</dd>
+      </div>
+      <div>
+        <dt>Business</dt>
+        <dd>Category</dd>
+      </div>
+      <div>
+        <dt>27th September 2022</dt>
+        <dd>Date</dd>
+      </div>
+    </dl>
+    <div>
+      <Button
+        title="Live Preview"
+        textColor="#181818"
+        backgroundColor="#FFCC4A"/>
+    </div>
+  </div>
+</section>
+
+<style>
+
+ .image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 16px;
+  max-width: 90%;
+  margin: -50px auto 0;
+  position: relative;
+  z-index: 10;
+}
+
+dl {
+  display: flex;
+  gap: 2rem;
+}
+
+dd, dt {
+  margin: 0;
+}
+
+dt {
+  font-weight: bold;
+}
+
+button {
+  margin-top: 1rem;
+}
+
+/* Responsivt design */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  dl {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .img {
+    margin-bottom: 1rem;
+  }
+}
+
+</style>

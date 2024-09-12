@@ -27,26 +27,30 @@ const { imageProps, h2, tekst, tagProps, li1, li2, order } = Astro.props;
 
 <style>
   @layer components {
-    .what-to-expect {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      justify-content: center;
-      gap: 82px;
-      color: var(--color-primary3);
+   .what-to-expect {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* To kolonner: én til billedet, én til teksten */
+  gap: 82px;
+  align-items: center;
+  padding: 2rem 5%; /* Indre afstand */
+  max-width: 1200px;
+  margin: 0 auto;
+  
+}
 
-      article {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
+h2, p{
+color: black;
+}
 
-      .content {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-      }
-    }
+.what-to-expect img {
+  max-width: 100%; /* Billedets bredde */
+}
 
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
     .order {
       order: 1;
     }

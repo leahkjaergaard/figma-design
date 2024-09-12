@@ -1,0 +1,124 @@
+---
+import PillHeading from "./PillHeading.astro";
+import Tag from "./Tag.astro";
+
+---
+
+<section>
+  <div class="wrapper">
+    <div class="what-to-container">
+        
+      <div>
+    <Tag style="primary">OUR VISION</Tag>
+
+      
+      <h2>Turn your ideas into reality.</h2>
+      <p>
+        Capitalize on low hanging fruit to identify a ballpark value added
+        activity beta test. Override the digital divide with additional from
+        DevOps.
+      </p>
+      </div>
+      <ul>
+        <li>
+          Bring to the table win-win survival strategies to ensure proactive
+          domination. At the end of the day.
+        </li>
+        <li>
+          Capitalize on low hanging fruit to identify a ballpark value added
+          activity to beta test override the digital.
+        </li>
+      </ul>
+    </div>
+  </div>
+ 
+    <div class="what-to-container">
+        <img src="../src/images/ourvision.jpg" alt="" />
+      </div>
+</section>
+<style>
+  section {
+    background: var(--secondary02);
+    padding: 4rem 0;
+  }
+
+  .what-to-container:has(img) {
+    display: grid;
+    gap: 1rem;
+
+    @container what-to-container (width > 500px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  section {
+    display: grid;
+    gap: 4rem;
+    grid-column: 1fr 1fr;
+
+    @media (width > 900px) {
+      grid-template-columns: 1fr minmax(0, 400px);
+    }
+
+    .what-to-container {
+      margin-inline: auto;
+      display: block;
+      position: relative;
+
+      .stars {
+        position: absolute;
+        width: 13rem;
+        height: 13rem;
+        right: -5rem;
+        top: -3rem;
+        z-index: -2;
+      }
+    }
+    .what-to-container:has(img)::before {
+      content: "";
+      position: absolute;
+      right: -2rem;
+      top: -2rem;
+      border-radius: 1.25rem;
+      background: #4eaf4e;
+      width: 10.25rem;
+      height: 11.4375rem;
+      transform: rotate(-90deg);
+      flex-shrink: 0;
+      z-index: -1;
+    }
+
+    .vision-img {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    img:not(.stars) {
+      border-radius: 1.75rem;
+    }
+  }
+
+  ul {
+    display: grid;
+    gap: 1rem;
+    margin-left: -2.5rem;
+    color: black;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  li:before {
+    content: "";
+    flex-shrink: 0;
+    width: 1.6rem;
+    aspect-ratio: 1;
+    background: var(--checkmark-icon) 50% 50% / contain no-repeat;
+  }
+
+  h2,p  {
+color: black;
+  }
+</style>

@@ -8,10 +8,10 @@ const employeeData = await fetch("https://raw.githubusercontent.com/daviatkea/fr
 
 <MainLayout title="Team">
 <section class="hero">
-    <img src="/src//assets/images/teamhero.jpg" alt="Hero image" />
-  </section>
+    <img src="/src/assets/images/teamhero.jpg" alt="Hero image" />
+</section>
 
-  <div class="grid_team">
+<div class="grid_team">
   <section class="start">
     <div class="start-content">
       <h2>Meet Our Great Team</h2>
@@ -26,24 +26,28 @@ const employeeData = await fetch("https://raw.githubusercontent.com/daviatkea/fr
   <section>
     <EmployeeSection data={employeeData} />
   </section>
-  </div>
+</div>
 </MainLayout>
 
 <style>
 
-.grid_team {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 12rem; 
-}
+  .grid_team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .start {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    
+    gap: 1rem;
+    text-align: left;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem;
   }
+
   .start-content h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -69,5 +73,48 @@ const employeeData = await fetch("https://raw.githubusercontent.com/daviatkea/fr
     font-weight: bold;
   }
 
+  /* Hero Section */
+  .hero img {
+    width: 100%;
+    height: auto;
+  }
 
+  @container (min-width: 768px) {
+    .start-content h2 {
+      font-size: 2rem;
+    } 
+
+    .start-content p {
+      font-size: 1rem;
+    }
+
+    .start-button button {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+
+  @container (max-width: 768px) {
+    .start-content h2 {
+      font-size: 1.8rem;
+    }
+
+    .start-content p {
+      font-size: 0.9rem;
+    }
+
+    .start-button {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .start-button button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .employee-card {
+      flex-basis: 100%;
+    }
+  }
 </style>
+

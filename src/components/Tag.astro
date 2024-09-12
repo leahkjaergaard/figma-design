@@ -1,8 +1,8 @@
 ---
-const { style } = Astro.props;
+const { style, place } = Astro.props;
 ---
 
-<p class={style}><slot /></p>
+<p class={`${style} ${place}`}><slot /></p>
 
 <style>
   @layer components {
@@ -10,6 +10,8 @@ const { style } = Astro.props;
       padding: 0 19px;
       border-radius: 20px;
       align-self: start;
+      justify-content: start;
+      text-transform: uppercase;
     }
     .primary {
       background: var(--color-primary2);
@@ -19,6 +21,15 @@ const { style } = Astro.props;
     .secondary {
       background: var(--color-primary1);
       color: var(--color-primary3);
+    }
+
+    .tertiary {
+      background: var(--color-secondary2);
+      color: var(--color-primary3);
+    }
+
+    .center {
+      align-self: center; /* This should now work correctly */
     }
   }
 </style>

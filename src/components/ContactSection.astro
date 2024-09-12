@@ -1,0 +1,171 @@
+---
+import PillHeading from "./PillHeading.astro";
+---
+
+<section>
+  <div class="wrapper">
+    <div class="contact">
+      <PillHeading title="procces" />
+      <p class="medium-size">Contact Us. It's Easy</p>
+      <p class="small-size">
+        Leverage agile frameworks to provide a robust synopsis for high level
+        overviews. Iterative approaches to corporate strategy foster
+        collaborative.
+      </p>
+      <dl>
+        <div class="dllist-call">
+          <div class="dt-dd-container">
+            <dt class="small-size">Call Today</dt>
+            <dd class="small-size"><strong>+1 800 100 900</strong></dd>
+          </div>
+        </div>
+        <div class="dllist-hours">
+          <div class="dt-dd-container">
+            <dt class="small-size">Monday To Friday</dt>
+            <dd class="small-size"><strong>9AM - 5PM</strong></dd>
+          </div>
+        </div>
+        <div class="dllist-place">
+          <div class="dt-dd-container">
+            <dt class="small-size">USA Office</dt>
+            <dd class="small-size">
+              <strong>195 Devonshire St Boston, MA 02110</strong>
+            </dd>
+          </div>
+        </div>
+      </dl>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="contact-container">
+      <div class="large-img">
+        <img src="../images/contactone.jpg" alt="" />
+      </div>
+      <div class="small-img">
+        <img class="stars" src="../images/smallStars.svg" alt="" />
+        <img src="../images/contacttwo.jpg" alt="" />
+        <img src="../images/contactthree.jpg" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    container: section / inline-size;
+    background: var(--secondary02);
+    padding: 6rem 0;
+    /* margin: 6rem 0; */
+
+    @media (width < 900px) {
+      padding: 3rem 0;
+    }
+  }
+
+  .wrapper {
+    container: contact-container / inline-size;
+  }
+
+  .contact-container:has(img) {
+    display: grid;
+    padding: 2rem 0;
+    gap: 1rem;
+
+    @container contact-container (width > 500px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  section {
+    display: grid;
+    gap: 1rem;
+    grid-column: feature;
+
+    @media (width > 900px) {
+      grid-template-columns: 1fr minmax(0, 500px);
+    }
+
+    .contact-container {
+      margin-inline: auto;
+      display: block;
+      position: relative;
+    }
+    .contact-container:has(img) {
+      display: flex;
+    }
+
+    img:not(.stars) {
+      border-radius: 1.75rem;
+    }
+
+    .small-img {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+
+      .stars {
+        position: absolute;
+        width: 14rem;
+        height: 14rem;
+        right: -2rem;
+        top: -1.5rem;
+        z-index: -2;
+      }
+    }
+
+    .contact-container:has(img)::before {
+      content: "";
+      position: absolute;
+      left: 1rem;
+      bottom: -5rem;
+      border-radius: 1.25rem;
+      background: #4eaf4e;
+      width: 8rem;
+      height: 15rem;
+      transform: rotate(-90deg);
+      flex-shrink: 0;
+      z-index: -1;
+    }
+  }
+  dl {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .dllist-call,
+  .dllist-hours,
+  .dllist-place {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .dllist-call:before {
+    content: "";
+    flex-shrink: 0;
+    width: 1.6rem;
+    aspect-ratio: 1;
+    background: url(../icons/phoneyellow.svg) 50% 50% / contain no-repeat;
+  }
+  .dllist-place:before {
+    content: "";
+    flex-shrink: 0;
+    width: 1.6rem;
+    aspect-ratio: 1;
+    background: url(../icons/grayplace.svg) 50% 50% / contain no-repeat;
+  }
+
+  .dllist-hours:before {
+    content: "";
+    flex-shrink: 0;
+    width: 1.6rem;
+    aspect-ratio: 1;
+    background: url(../icons/greenclock.svg) 50% 50% / contain no-repeat;
+  }
+
+  .dt-dd-container {
+    display: grid;
+    gap: 0.5rem;
+  }
+</style>

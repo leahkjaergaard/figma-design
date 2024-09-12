@@ -1,10 +1,8 @@
-/* @layer reset, global;
+@layer reset, global;
 
 @import "./reset.css" layer(reset);
 
 @layer global {
-
-
   :root {
     --step-0: clamp(1rem, 0.9565rem + 0.2174vw, 1.125rem);
     --step-1: clamp(1.25rem, 1.1632rem + 0.4341vw, 1.4996rem);
@@ -39,14 +37,12 @@
   body {
     min-height: 100svh;
 
-
     list-style: none;
     background-color: var(--color-secondary02);
     font-size: var(--step-0);
   }
 
   main {
-
     max-width: 1600px;
     margin: auto;
   }
@@ -92,4 +88,4 @@
     cursor: pointer;
     transition: all 0.55s ease;
   }
-} */
+}
