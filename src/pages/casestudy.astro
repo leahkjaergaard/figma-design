@@ -7,8 +7,7 @@ import Button from "../components/Button.astro";
 ---
 
 <MainLayout title="Case Study Single">
-  <h1>Case Study Sigle</h1>
-   <div class="image-container">
+   <div class="image-container full-width">
     <img src="../src/assets/images/casestudy_hero.jpg" alt="" />
     <div class="head-container">
     <PillHeading title="Case Studies single" />
@@ -16,12 +15,18 @@ import Button from "../components/Button.astro";
   </div>
   </div>
   
-  <CaseFirstSection />
-  <CaseSecondSection />
+  <div class="constrained-container">
+    <CaseFirstSection />
+  </div>
+
+  <div class="full-width">
+    <CaseSecondSection />
+  </div>
 
 </MainLayout>
 
 <style>
+
 .image-container {
   width: 100%;
   max-height: 500px;
@@ -50,7 +55,20 @@ import Button from "../components/Button.astro";
   color: black;
 }
 
-/* Responsivt design */
+/* Constrained layout for the rest of the sections */
+.constrained-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Full-width sections */
+.full-width {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+/* Responsive design adjustments */
 @media (max-width: 768px) {
   .head-container {
     padding: 0.5rem 1rem;
@@ -59,6 +77,9 @@ import Button from "../components/Button.astro";
   .head-container p {
     font-size: 1.25rem;
   }
+
+  .constrained-container {
+    width: 95%;
+  }
 }
-  
 </style>
